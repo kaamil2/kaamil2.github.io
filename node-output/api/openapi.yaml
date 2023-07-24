@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: API Title
+  description: API Description
+  version: 1.0.0
+servers:
+- url: https://api.example.com/v1
+paths:
+  /plot:
+    get:
+      summary: Plot a histogram
+      description: ""
+      operationId: plotGET
+      parameters:
+      - name: o1
+        in: query
+        description: numeric
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: b1
+        in: query
+        description: numeric
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: String
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: p1
+        in: query
+        description: String
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: a5
+        in: query
+        description: Boolean
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            image/png:
+              schema:
+                type: object
+                x-content-type: image/png
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        default:
+          description: Default response.
+          content:
+            image/png:
+              schema:
+                type: object
+                x-content-type: image/png
+      x-swagger-router-controller: Default
+components: {}
